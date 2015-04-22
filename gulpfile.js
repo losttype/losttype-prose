@@ -17,6 +17,8 @@ var watch = require('gulp-watch');
 var source = require('vinyl-source-stream');
 var mkdirp = require('mkdirp');
 var nodeJS = process.execPath;
+var spawn = require('child_process').spawn;
+var serve = spawn('serve');
 
 // Scripts paths.
 var paths = {
@@ -200,3 +202,24 @@ gulp.task('test', ['run-tests'], function() {
 // Default task which builds the project when we
 // run `gulp` from the command line.
 gulp.task('default', ['build-tests', 'build-app', 'uglify']);
+
+
+// Serve the application locally.
+// Usage:
+//
+//    $ gulp server
+//
+gulp.task('server', function() {
+  serve.stdout.on('data', function (data) {
+    console.log('stdout: ' + data);
+  });
+
+  serve.stderr.on('data', function (data) {
+    console.log('stderr: ' + data);
+  });
+
+  serve.on('close', function (code) {
+    console.log('child process exited with code ' + code);
+  });
+})
+
