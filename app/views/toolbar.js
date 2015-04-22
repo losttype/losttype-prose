@@ -394,7 +394,8 @@ module.exports = Backbone.View.extend({
       } else {
         var src = '{{site.baseurl}}/' + $('input[name="url"]').val();
         var alt = $('input[name="alt"]').val();
-        this.view.editor.replaceSelection('![' + alt + '](' + src + ')');
+        var figcaption = $('input[name="figcaption"]').val();
+        this.view.editor.replaceSelection('<figure>![' + alt + '](' + src + ')<figcaption>' + alt + '</figcation></figure>');
         this.view.editor.focus();
       }
     }

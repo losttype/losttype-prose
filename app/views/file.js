@@ -1302,7 +1302,7 @@ module.exports = Backbone.View.extend({
         var $alt = $('input[name="alt"]');
         var value = $alt.val();
         var image = (value) ?
-          '![' + value + '](' + path + ')' :
+          '<figure>![' + value + '](' + path + ')<figcaption>' + value + '</figcaption></figure>' :
           '![' + name + '](' + path + ')';
 
         this.editor.focus();
