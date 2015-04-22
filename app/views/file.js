@@ -1275,6 +1275,7 @@ module.exports = Backbone.View.extend({
 
     this.$el.find('input[name="url"]').val(src);
     this.$el.find('input[name="alt"]').val('');
+    this.$el.find('input[name="figcaption"]').val('');
 
     this.toolbar.queue = {
       e: e,
@@ -1298,9 +1299,11 @@ module.exports = Backbone.View.extend({
         var name = res.content.name;
         var path = '{{site.baseurl}}/' + res.content.path;
 
-        // Take the alt text from the insert image box on the toolbar
+        // Take the alt and ficaption text from the insert image box on the toolbar
         var $alt = $('input[name="alt"]');
+        var $figcaption = $('input[name="figcaption"]');
         var value = $alt.val();
+        var caption = $figcaption.val();
         var image = (value) ?
           '<figure>![' + value + '](' + path + ')<figcaption>' + value + '</figcaption></figure>' :
           '![' + name + '](' + path + ')';

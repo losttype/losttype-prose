@@ -186,6 +186,7 @@
             "back": "Back",
             "hrefPlaceholder": "Image URL",
             "altPlaceholder": "Alt text (optional)",
+            "figcaptionPlaceholder": "Caption text (optional)",
             "description": "Upload images by Dragging &amp; Dropping or </br>\n{input} <a>selecting one</a>\n",
             "help": "Images uploaded are added to the current directory or one specified in the Image URL path above.",
             "helpMedia": "Images uploaded are added to the 'Choose Existing' directory or one specified in the Image URL field.",
