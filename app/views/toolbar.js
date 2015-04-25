@@ -121,6 +121,9 @@ module.exports = Backbone.View.extend({
         case 'quote':
           this.quote(selection);
           break;
+        case 'pullquote':
+          this.pullquote(selection);
+          break;
         default:
           this.view.editor.replaceSelection(snippet);
           break;
@@ -452,6 +455,16 @@ module.exports = Backbone.View.extend({
       this.view.editor.replaceSelection('> ' + s.replace(/\>/g, ''));
     }
   },
+
+  pullquote: function(s) {
+    if (s.split('<div data-pullquote="')[1] && s.split('"></div>')[1]) {
+      this.view.editor.replaceSelection(s.replace(/'<div data-pullquote="'/g, ''));
+      this.view.editor.replaceSelection(s.replace(/'"><\/div>'/g, ''));
+    } else {
+      this.view.editor.replaceSelection('<div data-pullquote="' + s + '"></div>');
+    }
+  },
+
 
   renderMedia: function(data, back) {
     var self = this;
