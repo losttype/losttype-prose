@@ -397,7 +397,15 @@ module.exports = Backbone.View.extend({
         var src = '{{site.baseurl}}/' + $('input[name="url"]').val();
         var alt = $('input[name="alt"]').val();
         var figcaption = $('textarea[name="figcaption"]').val();
-        this.view.editor.replaceSelection('<figure>\n![' + alt + '](' + src + ')\n<figcaption>' + figcaption + '</figcation>\n</figure>');
+        var credit = $('input[name="credit"]').val();
+        var source = $('input[name="source"]').val();
+        this.view.editor.replaceSelection(
+          '<figure>\n' +
+          '![' + alt + '](' + src + ')\n' +
+          '<figcaption>' + figcaption + '</figcaption>\n' +
+          // (credit ? '<footer>' + (source ? '<a href="' + source '">' : '') + credit + (source ? '</a>' : '') : '') +
+          (credit && source ? '<footer>[' + credit + '](' + source + ')</footer>\n' : '') +
+          '</figure>');
         this.view.editor.focus();
       }
     }

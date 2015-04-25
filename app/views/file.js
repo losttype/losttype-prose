@@ -1306,9 +1306,16 @@ module.exports = Backbone.View.extend({
         var $figcaption = $('textarea[name="figcaption"]');
         var value = $alt.val() || '';
         var figcaption = $figcaption.val();
+        var credit = $('input[name="credit"]').val();
+        var source = $('input[name="source"]').val();
         var image = (figcaption) ?
-          '<figure>\n![' + value + '](' + path + ')\n<figcaption>' + figcaption + '</figcaption>\n</figure>' :
-          '![' + value + '](' + path + ')';
+        '<figure>\n' +
+        '![' + alt + '](' + src + ')\n' +
+        '<figcaption>' + figcaption + '</figcaption>\n' +
+        // (credit ? '<footer>' + (source ? '<a href="' + source '">' : '') + credit + (source ? '</a>' : '') : '') +
+        (credit && source ? '<footer>[' + credit + '](' + source + ')</footer>\n' : '') +
+        '</figure>' :
+        '![' + value + '](' + path + ')';
 
         this.editor.focus();
         this.editor.replaceSelection(image + '\n', 'end');

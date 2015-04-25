@@ -23,6 +23,12 @@
       </label>
     </fieldset>
 
+    <fieldset>
+      <label>Design Credit
+        <input type='text' name='credit' placeholder="<%= t('dialogs.media.creditPlaceholder')%>" />
+        <input type='text' name='source' placeholder="<%= t('dialogs.media.sourcePlaceholder')%>" />
+      </label>
+    </fieldset>
     <a href='#' class='button round insert' data-type='media'><%= t('dialogs.link.insert') %></a>
       <% if (!assetsDirectory) { %>
         <small class='caption deemphasize'><%= t('dialogs.media.help') %></small>
