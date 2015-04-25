@@ -390,12 +390,14 @@ module.exports = Backbone.View.extend({
         this.view.upload(this.queue.e, this.queue.file, this.queue.content, userDefinedPath);
 
         // Finally, clear the queue object
+        // This is when you’re using an existing image, the image
+        // template for uplading a new images is in file.js
         this.queue = undefined;
       } else {
         var src = '{{site.baseurl}}/' + $('input[name="url"]').val();
         var alt = $('input[name="alt"]').val();
-        var figcaption = $('input[name="figcaption"]').val();
-        this.view.editor.replaceSelection('<figure>![' + alt + '](' + src + ')<figcaption>' + alt + '</figcation></figure>');
+        var figcaption = $('textarea[name="figcaption"]').val();
+        this.view.editor.replaceSelection('<figure>\n![' + alt + '](' + src + ')\n<figcaption>' + figcaption + '</figcation>\n</figure>');
         this.view.editor.focus();
       }
     }

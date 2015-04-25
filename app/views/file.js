@@ -1274,8 +1274,8 @@ module.exports = Backbone.View.extend({
     var src = path + '/' + encodeURIComponent(file.name);
 
     this.$el.find('input[name="url"]').val(src);
-    this.$el.find('input[name="alt"]').val('');
-    this.$el.find('input[name="figcaption"]').val('');
+    this.$el.find('input[name="alt"]').val('');        // TODO Re-insert alt content for editing
+    this.$el.find('input[name="figcaption"]').val(''); // TODO Re-insert figcaption content for editing
 
     this.toolbar.queue = {
       e: e,
@@ -1300,13 +1300,15 @@ module.exports = Backbone.View.extend({
         var path = '{{site.baseurl}}/' + res.content.path;
 
         // Take the alt and ficaption text from the insert image box on the toolbar
+        // This is when you’re uploading an image, the image
+        // template for existing images is in toolbar.js
         var $alt = $('input[name="alt"]');
-        var $figcaption = $('input[name="figcaption"]');
-        var value = $alt.val();
-        var caption = $figcaption.val();
-        var image = (value) ?
-          '<figure>![' + value + '](' + path + ')<figcaption>' + value + '</figcaption></figure>' :
-          '![' + name + '](' + path + ')';
+        var $figcaption = $('textarea[name="figcaption"]');
+        var value = $alt.val() || '';
+        var figcaption = $figcaption.val();
+        var image = (figcaption) ?
+          '<figure>\n![' + value + '](' + path + ')\n<figcaption>' + figcaption + '</figcaption>\n</figure>' :
+          '![' + value + '](' + path + ')';
 
         this.editor.focus();
         this.editor.replaceSelection(image + '\n', 'end');

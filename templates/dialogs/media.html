@@ -10,9 +10,19 @@
       </div>
     <% } %>
 
-    <input type='text' name='url' placeholder="<%= t('dialogs.media.hrefPlaceholder')%>" />
-    <input type='text' name='alt' placeholder="<%= t('dialogs.media.altPlaceholder')%>" />
-    <input type='text' name='figcaption' placeholder="<%= t('dialogs.media.figcaptionPlaceholder')%>" />
+    <fieldset>
+      <label>Media
+        <input type='text' name='url' placeholder="<%= t('dialogs.media.hrefPlaceholder')%>" />
+        <input type='text' name='alt' placeholder="<%= t('dialogs.media.altPlaceholder')%>" />
+      </label>
+    </fieldset>
+
+    <fieldset>
+      <label>Caption
+        <textarea name='figcaption' placeholder="<%= t('dialogs.media.figcaptionPlaceholder')%>"></textarea>
+      </label>
+    </fieldset>
+
     <a href='#' class='button round insert' data-type='media'><%= t('dialogs.link.insert') %></a>
       <% if (!assetsDirectory) { %>
         <small class='caption deemphasize'><%= t('dialogs.media.help') %></small>
