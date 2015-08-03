@@ -1383,7 +1383,7 @@ ins {
   padding-left:15px;
   }
   .dialog .media-listing ul {
-    height:155px;
+    max-height:450px;
     overflow:auto;
     }
   .chzn-results::-webkit-scrollbar,
@@ -2744,4 +2744,33 @@ only screen and (min-device-pixel-ratio:2) {
     background-image:url('img/loader@110x110.gif');
     background-size:55px 55px;
     }
+}
+
+/* Shame */
+/* http://philipwalton.github.io/solved-by-flexbox/demos/media-object/ */
+/* All of this is only used in mediadirectory.html */
+.mediaObj {
+  display: flex;
+  align-items: flex-start;
+}
+
+.mediaObj--center {
+  /*align-items: center;*/
+}
+
+.mediaObj-figure {
+  margin-right: 1em;
+}
+
+.mediaObj-figure img {
+  width: 100%;
+}
+
+.mediaObj-body {
+  flex: 1;
+}
+
+.asset .mediaObj-figure {
+  max-width: 3em;
+  max-height: 3em;
 }

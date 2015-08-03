@@ -20,6 +20,7 @@ module.exports = Backbone.View.extend({
 
   initialize: function(options) {
     var self = this;
+    this.repo = options.repo;
     this.file = options.file;
     this.view = options.view;
     this.collection = options.collection;
@@ -488,7 +489,8 @@ module.exports = Backbone.View.extend({
         name: d.get('name'),
         type: d.get('type'),
         path: path + '/' + encodeURIComponent(d.get('name')),
-        isMedia: util.isMedia(d.get('name').split('.').pop())
+        isMedia: util.isMedia(d.get('name').split('.').pop()),
+        repo: d.attributes.repo.attributes
       }));
     });
 

@@ -8,14 +8,19 @@
   </li>
 <% } else { %>
   <li class='asset'>
-    <span class='mask'></span>
+    <!-- <span class='mask'></span> -->
     <a class='clearfix item' href='<%= path %>' title='<%= path %>'>
-      <% if (isMedia) { %>
-        <span class='ico fl small inline media'></span>
-      <% } else { %>
-        <span class='ico fl small inline document'></span>
-      <% } %>
-      <%= name %>
+      <div class='mediaObj mediaObj--center'>
+        <% if (isMedia) { %>
+          <div class='mediaObj-figure'>
+            <img src='https://cdn.rawgit.com/<%- repo.owner.login %>/<%- repo.name %>/master/<%= path %>'>
+          </div>
+        <!-- <span class='ico fl small inline media'></span> -->
+        <% } else { %>
+          <span class='ico fl small inline document'></span>
+        <% } %>
+        <div class='mediaObj-body'><%= name %></div>
+      </div>
     </a>
   </li>
 <% } %>
