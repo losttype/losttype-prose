@@ -405,9 +405,10 @@ module.exports = Backbone.View.extend({
         this.view.editor.replaceSelection(
           '<figure>\n' +
           '![' + alt + '](' + src + ')\n' +
-          '<figcaption>' + figcaption + '</figcaption>\n' +
+          '<figcaption>' + figcaption + '\n' +
           // (credit ? '<footer>' + (source ? '<a href="' + source '">' : '') + credit + (source ? '</a>' : '') : '') +
-          (credit && source ? '<footer>[' + credit + '](' + source + ')</footer>\n' : '') +
+          (credit && source ? '<footer>[' + credit + '](' + source + ')</footer>\n' : '') + '\n' +
+          '</figcaption>\n' +
           '</figure>');
         this.view.editor.focus();
       }

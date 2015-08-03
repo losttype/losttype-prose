@@ -1311,9 +1311,10 @@ module.exports = Backbone.View.extend({
         var image = (figcaption) ?
         '<figure>\n' +
         '![' + alt + '](' + src + ')\n' +
-        '<figcaption>' + figcaption + '</figcaption>\n' +
+        '<figcaption>' + figcaption + '\n' +
         // (credit ? '<footer>' + (source ? '<a href="' + source '">' : '') + credit + (source ? '</a>' : '') : '') +
-        (credit && source ? '<footer>[' + credit + '](' + source + ')</footer>\n' : '') +
+        (credit && source ? '<footer>[' + credit + '](' + source + ')</footer>\n' : '') + '\n' +
+        '</figcaption>\n' +
         '</figure>' :
         '![' + value + '](' + path + ')';
 
