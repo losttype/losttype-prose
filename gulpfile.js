@@ -201,7 +201,7 @@ gulp.task('test', ['run-tests'], function() {
 
 // Default task which builds the project when we
 // run `gulp` from the command line.
-gulp.task('default', ['build-tests', 'build-app', 'uglify']);
+gulp.task('default', ['watch', 'uglify', 'server']);
 
 
 // Serve the application locally.
