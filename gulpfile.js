@@ -221,5 +221,17 @@ gulp.task('server', function() {
   serve.on('close', function (code) {
     console.log('child process exited with code ' + code);
   });
-})
+});
 
+// Publish the application to Surge.
+// Usage:
+//
+//    $ gulp deploy
+//
+// gulp.task('deploy', ['run-tests', 'build-app', 'uglify'], function() {
+gulp.task('deploy', ['build-app', 'uglify'], function() {
+
+  // Hand-off to Surge via npm run script…
+  process.exit(0);
+
+});
