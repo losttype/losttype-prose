@@ -41,12 +41,14 @@
     "request": "~2.16.2",
     "serve": "^1.4.0",
     "sinon-chai": "^2.6.0",
+    "surge": "latest",
     "uglify-js": "~2.2.5",
     "vinyl-source-stream": "^0.1.1"
   },
   "scripts": {
     "test": "node_modules/.bin/gulp && node_modules/.bin/mocha-phantomjs test/index.html",
-    "start": "gulp"
+    "start": "gulp",
+    "deploy": "gulp deploy && surge ./"
   },
   "browserify": {
     "transform": [
