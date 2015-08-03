@@ -63,6 +63,9 @@
     "url": "git://github.com/prose/prose.git"
   },
   "author": "Development Seed",
+  "contributors": [
+    "Kenneth Ormandy <hello@kennethormandy.com> (http://kennethormandy.com)"
+  ],
   "license": "BSD",
   "readmeFilename": "README.md",
   "gitHead": "2f58c9a97bb76b21055fe76b4c97424068ad5386"
